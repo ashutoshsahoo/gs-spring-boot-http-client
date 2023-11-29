@@ -8,6 +8,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.UUID;
+
 @SpringBootApplication
 @RequiredArgsConstructor
 @Slf4j
@@ -23,7 +25,8 @@ public class GsSpringBootHttpClientApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         log.info("-------Start-----");
 
-        log.info("getAll: {}", userClient.getAll());
+        String headerValue = UUID.randomUUID().toString();
+        log.info("getAll: {}", userClient.getAll(headerValue));
 
         log.info("getById: {}", userClient.getById(1L));
         var response = userClient.save(new UserDto(null, "ABC", "abc123", "abc@xyz.com"));

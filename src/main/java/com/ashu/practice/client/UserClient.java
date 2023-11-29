@@ -6,6 +6,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.service.annotation.*;
 
 import java.util.List;
@@ -17,6 +18,9 @@ public interface UserClient {
 
     @GetExchange
     List<UserDto> getAll();
+
+    @GetExchange
+    List<UserDto> getAll(@RequestHeader("X-LOCAL-HEADER") String headerName);
 
     @GetExchange("/{id}")
     UserDto getById(@PathVariable("id") Long id);

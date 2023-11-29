@@ -1,3 +1,8 @@
 spring:
   main:
     web-application-type: none
+
+
+logging:
+  level:
+    org.apache.hc.client5.http.wire: DEBUG
