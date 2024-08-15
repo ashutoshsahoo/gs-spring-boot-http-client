@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: gs-spring-boot-http-client
   main:
     web-application-type: none
 
