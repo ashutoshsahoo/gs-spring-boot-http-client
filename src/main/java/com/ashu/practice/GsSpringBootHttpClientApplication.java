@@ -4,6 +4,7 @@ import com.ashu.practice.client.UserClient;
 import com.ashu.practice.dto.UserDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.jspecify.annotations.NonNull;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,12 +18,12 @@ public class GsSpringBootHttpClientApplication implements CommandLineRunner {
 
     private final UserClient userClient;
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(GsSpringBootHttpClientApplication.class, args);
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String @NonNull ... args) {
         log.info("-------Start-----");
 
         String headerValue = UUID.randomUUID().toString();
